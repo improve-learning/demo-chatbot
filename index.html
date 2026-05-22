@@ -1,21 +1,69 @@
 <!doctype html>
-<html>
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <title>Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Demo Chatbot</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
       rel="stylesheet"
     />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+      }
+
+      .welcome {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .welcome h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+      }
+
+      .welcome p {
+        font-size: 18px;
+        opacity: 0.8;
+      }
+    </style>
   </head>
+
   <body>
+    <div class="welcome">
+      <h1>Chào mừng bạn 👋</h1>
+      <p>Hãy nhấn vào biểu tượng chat góc dưới để bắt đầu</p>
+    </div>
+
     <script type="module">
       import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js";
 
       createChat({
         webhookUrl:
-          "https://sandal-brethren-reassign.ngrok-free.dev/workflow/1QwNkwL7WFMjywJA",
+          "https://sandal-brethren-reassign.ngrok-free.dev/webhook/df8230f7-027a-4c7d-ae12-435be98c9c55/chat",
+
+        initialMessages: ["Xin chào 👋", "Mình có thể giúp gì cho bạn?"],
+
+        i18n: {
+          en: {
+            title: "AI Assistant",
+            subtitle: "Trò chuyện cùng chatbot",
+            footer: "",
+          },
+        },
+
+        showWelcomeScreen: false,
       });
     </script>
   </body>
